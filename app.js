@@ -22,3 +22,9 @@ var introRoutes = require('./routes/introRoutes');
 app.use('/intro', introRoutes)
 var apiRoutes = require('./routes/apiRoutes');
 app.use('/v2', apiRoutes)
+var authRoutes = require('./routes/authRoutes');
+app.use('/auth', authRoutes)
+
+app.get("/:page", (req, res, next) => {
+  res.sendFile(path.join(__dirname+'/html/'+req.params.page+'.html'));
+})

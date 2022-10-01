@@ -1,0 +1,80 @@
+<div>
+  <p><strong>GET</strong> /docs</p>
+  <p> Show this page </p>
+</div>
+
+<div>
+  <p><strong>GET</strong> /intro/hello</p>
+  <p> Hello world response </p>
+  <p> Query params: name - string <br/>
+    Replaces "world" in the greeting response</p>
+</div>
+
+<div>
+  <p><strong>POST</strong> /intro/echo</p>
+  <p> echo service - replays any request given as a response </p>
+</div>
+
+<div>
+  <p><strong>GET</strong> /intro/random/:number</p>
+  <p> random number generator </p>
+  <p> Params: number - integer <br/>
+    num must be greater than 4.<br/>
+    Returns a random dice roll for a 'number'-sided dice.</p>
+</div>
+
+
+<div>
+  <p><strong>GET</strong> /v2/things</p>
+  <p> Returns the JSON representation of the current list</p>
+</div>
+
+<div>
+  <p><strong>POST</strong> /v2/things</p>
+  <p> Adds an item to "the list" </p>
+  <p> Param: thing - string <br/>
+    The thing to be added to the list</p>
+  <p> Returns the JSON representation of the current list</p>
+
+</div>
+
+<div>
+  <p><strong>DELETE</strong> /v2/things</p>
+  <p> Deletes from the list </p>
+  <p> Param: thing - string <br/>
+    The thing to be deleted from the list</p>
+  <p> Returns the JSON representation of the current list</p>
+</div>
+
+<div>
+  <p><strong>GET</strong> /auth/clientBasic</p>
+  <p> Validates a Basic authorization request</p>
+</div>
+
+<div>
+  <p><strong>GET</strong> /auth/clientToken</p>
+  <p> Validates an authorization request using the Token header</p>
+</div>
+
+<div>
+  <p><strong>POST</strong> /auth/requestLogin</p>
+  <p> request user to log in using username / password </p>
+  <p>Params: <br/>
+    username - string <br/>
+    password - string
+  </p>
+</div>
+<div>
+  <p><strong>GET</strong> /auth/requestValidate</p>
+  <p> Validates a user request using a request token</p>
+  <p>Params: <br/>
+    token - string
+  </p>
+</div>
+<div>
+  <p><strong>GET</strong> /auth/requestLogout</p>
+  <p> Ends a users session</p>
+  <p>Params: <br/>
+    token - string
+  </p>
+</div>
