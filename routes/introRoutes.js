@@ -14,21 +14,31 @@ router.get("/random", (req, res, next) => {
   res.redirect('/intro/random/6');
 })
 
-var stats = {
-  rolls: 0,
-  total: 0,
+var stats = {}
+
+function statsUpdate(n, r) {
+  if (stats[n] == undefined) {
+    stats[n] = {rolls: 0, total: 0, average: 0}
+  }
+  stats[n].rolls += 1
+  stats[n].total += r
+  stats[n].average = (stats[n].total * 1.0) / stats[n].rolls
 }
 
 router.get("/random/:number", (req, res, next) => {
-  if (parseInt(req.params.number) >= 4) {
-    stats.rolls += 1
-    stats.total += 4
-    res.send("4"); // chosen by fair dice roll. https://xkcd.com/221/
+  if (req.params.number == "stats") {
+    res.json(stats)
   } else {
-    res.status(400)
-    res.send("number must be greater than 4")
+    var number = parseInt(req.params.number)
+    if (number >= 4) {
+      var result = 4 // chosen by fair dice roll. https://xkcd.com/221/
+      statsUpdate(number, result)
+      res.send(result + "");
+    } else {
+      res.status(400)
+      res.send("number must be greater than 4")
+    }
   }
-
 })
 
 module.exports = router;
